@@ -26,7 +26,7 @@ module.exports = function unflowify(filename, options) {
   function transform() {
     var source = Buffer.concat(file).toString('utf8');
     try {
-      this.queue(flowRemoveTypes(source));
+      this.queue(flowRemoveTypes(source, options).toString());
       this.queue(null);
     } catch (error) {
       error.message = filename + ': ' + error.message;
